@@ -51,11 +51,16 @@ class SevenController extends Controller
         [$stringMatch, $dayNumber] = $matches;
 
         $dayNumber = (int) $dayNumber;
-        $daysToBe = $dayNumber - ($dayNumber - 1) % $frequency;
+        $daysFromLastFrequency = ($dayNumber - 1) % $frequency;
+        $previousDay = $dayNumber;
 
-        $command = "settime $daysToBe 4 0";
+        if ($daysFromLastFrequency > 0) {
+            $previousDay--;
+        }
+
+        $command = "settime $previousDay 4 0";
         $api->execute($command);
 
-        return $daysToBe;
+        return $previousDay;
     }
 }

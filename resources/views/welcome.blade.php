@@ -51,7 +51,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    <form method="post" action="{{ action([\App\Http\Controllers\SevenController::class, 'reset']) }}"><input type="submit" value="Delay Blood Moon">@csrf</form>
+                                    <form method="post" action="{{ action([\App\Http\Controllers\SevenController::class, 'reset']) }}"><input type="submit" value="Rollback 1 Day">@csrf</form>
                                 </div>
                             </div>
                         </div>
