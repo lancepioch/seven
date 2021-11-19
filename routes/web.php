@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\SevenController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/seven/preferences', [SevenController::class, 'preferences']);
+Route::post('/seven/rollback', [SevenController::class, 'reset']);
